@@ -29,7 +29,7 @@ services:
     image: selenium_test
     container_name: seleniumtest
     volumes:
-      - ./Reports:/project/test-output
+      - ./test-output:/project/test-output
     build:
       context: .
       dockerfile: Dockerfile
