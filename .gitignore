@@ -26,3 +26,4 @@ replay_pid*
 # report folders
 /target/*
 /test-output/*
+/target/

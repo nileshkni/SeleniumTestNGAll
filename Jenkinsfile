@@ -1,35 +1,19 @@
 pipeline {
     agent any
 
-    environment{
-        NUMBER = 3
-    }
-
     stages {
-        stage('stage-1') {
+        stage('run-docker-compose-test') {
             steps {
-                echo "doing mvn clean"
-                echo "NUMEBR IS = ${NUMBER}"
+                bat "docker compose up --abort-on-container-exit"
             }
         }
-        stage('stage-2') {
-            environment{
-                NUMBER = 6
-            }
-            steps {
-                echo "NUMEBR IS = ${NUMBER}"
-            }
-        }
-        stage('stage-3') {
-            steps {
-                echo "push docker image"
-                echo "NUMEBR IS = ${NUMBER}"
-            }
-        }
+        
     }
     post{
         always{
             echo 'doing cleanup'
+            bat "docker system prune -f"
+
         }
     }
 }
