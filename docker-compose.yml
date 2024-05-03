@@ -32,6 +32,8 @@ services:
       - ./test-output:/project/test-output
     build:
       context: .
+      args:
+        MODE: "Smoke"
       dockerfile: Dockerfile
     restart: on-failure
     depends_on:

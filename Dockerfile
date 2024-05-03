@@ -9,4 +9,4 @@ RUN mvn clean compile
 
 From build AS test
 WORKDIR /project
-CMD ["mvn","test","-PSmoke"]
+CMD ["mvn","test","-P$MODE"]
