@@ -12,7 +12,6 @@ pipeline {
     post{
         always{
             echo 'doing cleanup'
-            archiveArtifacts artifacts: 'test-output/**', followSymlinks: false
             bat "docker system prune -f"
 
         }
