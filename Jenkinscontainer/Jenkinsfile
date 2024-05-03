@@ -29,6 +29,7 @@ pipeline {
     post{
         always{
             echo 'doing cleanup'
+            testNG()
             bat "docker system prune -f"
 
         }
